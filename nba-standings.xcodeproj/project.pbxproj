@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823A239C290400B0DF50 /* AppDelegate.swift */; };
+		B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823C239C290400B0DF50 /* SceneDelegate.swift */; };
+		B822823F239C290400B0DF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823E239C290400B0DF50 /* ViewController.swift */; };
+		B8228242239C290400B0DF50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228240239C290400B0DF50 /* Main.storyboard */; };
+		B8228244239C290500B0DF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8228243239C290500B0DF50 /* Assets.xcassets */; };
+		B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228245239C290500B0DF50 /* LaunchScreen.storyboard */; };
+		B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8228251239C290500B0DF50 /* nba_standingsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B822824E239C290500B0DF50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B822822F239C290300B0DF50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8228236239C290300B0DF50;
+			remoteInfo = "nba-standings";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B8228237239C290400B0DF50 /* nba-standings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nba-standings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B822823A239C290400B0DF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B822823C239C290400B0DF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B822823E239C290400B0DF50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8228241239C290400B0DF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8228243239C290500B0DF50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8228246239C290500B0DF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8228248239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B822824D239C290500B0DF50 /* nba-standingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nba-standingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8228251239C290500B0DF50 /* nba_standingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nba_standingsTests.swift; sourceTree = "<group>"; };
+		B8228253239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8228234239C290300B0DF50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B822824A239C290500B0DF50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B822822E239C290300B0DF50 = {
+			isa = PBXGroup;
+			children = (
+				B8228239239C290400B0DF50 /* nba-standings */,
+				B8228250239C290500B0DF50 /* nba-standingsTests */,
+				B8228238239C290400B0DF50 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B8228238239C290400B0DF50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8228237239C290400B0DF50 /* nba-standings.app */,
+				B822824D239C290500B0DF50 /* nba-standingsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8228239239C290400B0DF50 /* nba-standings */ = {
+			isa = PBXGroup;
+			children = (
+				B822823A239C290400B0DF50 /* AppDelegate.swift */,
+				B822823C239C290400B0DF50 /* SceneDelegate.swift */,
+				B822823E239C290400B0DF50 /* ViewController.swift */,
+				B8228240239C290400B0DF50 /* Main.storyboard */,
+				B8228243239C290500B0DF50 /* Assets.xcassets */,
+				B8228245239C290500B0DF50 /* LaunchScreen.storyboard */,
+				B8228248239C290500B0DF50 /* Info.plist */,
+			);
+			path = "nba-standings";
+			sourceTree = "<group>";
+		};
+		B8228250239C290500B0DF50 /* nba-standingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8228251239C290500B0DF50 /* nba_standingsTests.swift */,
+				B8228253239C290500B0DF50 /* Info.plist */,
+			);
+			path = "nba-standingsTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8228236239C290300B0DF50 /* nba-standings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8228256239C290500B0DF50 /* Build configuration list for PBXNativeTarget "nba-standings" */;
+			buildPhases = (
+				B8228233239C290300B0DF50 /* Sources */,
+				B8228234239C290300B0DF50 /* Frameworks */,
+				B8228235239C290300B0DF50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "nba-standings";
+			productName = "nba-standings";
+			productReference = B8228237239C290400B0DF50 /* nba-standings.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B822824C239C290500B0DF50 /* nba-standingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8228259239C290500B0DF50 /* Build configuration list for PBXNativeTarget "nba-standingsTests" */;
+			buildPhases = (
+				B8228249239C290500B0DF50 /* Sources */,
+				B822824A239C290500B0DF50 /* Frameworks */,
+				B822824B239C290500B0DF50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B822824F239C290500B0DF50 /* PBXTargetDependency */,
+			);
+			name = "nba-standingsTests";
+			productName = "nba-standingsTests";
+			productReference = B822824D239C290500B0DF50 /* nba-standingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B822822F239C290300B0DF50 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "37th Street";
+				TargetAttributes = {
+					B8228236239C290300B0DF50 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					B822824C239C290500B0DF50 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = B8228236239C290300B0DF50;
+					};
+				};
+			};
+			buildConfigurationList = B8228232239C290300B0DF50 /* Build configuration list for PBXProject "nba-standings" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B822822E239C290300B0DF50;
+			productRefGroup = B8228238239C290400B0DF50 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8228236239C290300B0DF50 /* nba-standings */,
+				B822824C239C290500B0DF50 /* nba-standingsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8228235239C290300B0DF50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */,
+				B8228244239C290500B0DF50 /* Assets.xcassets in Resources */,
+				B8228242239C290400B0DF50 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B822824B239C290500B0DF50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8228233239C290300B0DF50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
+				B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */,
+				B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8228249239C290500B0DF50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B822824F239C290500B0DF50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8228236239C290300B0DF50 /* nba-standings */;
+			targetProxy = B822824E239C290500B0DF50 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B8228240239C290400B0DF50 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8228241239C290400B0DF50 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B8228245239C290500B0DF50 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8228246239C290500B0DF50 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8228254239C290500B0DF50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B8228255239C290500B0DF50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8228257239C290500B0DF50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2FHST7LZF;
+				INFOPLIST_FILE = "nba-standings/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8228258239C290500B0DF50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2FHST7LZF;
+				INFOPLIST_FILE = "nba-standings/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B822825A239C290500B0DF50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2FHST7LZF;
+				INFOPLIST_FILE = "nba-standingsTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nba-standings.app/nba-standings";
+			};
+			name = Debug;
+		};
+		B822825B239C290500B0DF50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2FHST7LZF;
+				INFOPLIST_FILE = "nba-standingsTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nba-standings.app/nba-standings";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8228232239C290300B0DF50 /* Build configuration list for PBXProject "nba-standings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8228254239C290500B0DF50 /* Debug */,
+				B8228255239C290500B0DF50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8228256239C290500B0DF50 /* Build configuration list for PBXNativeTarget "nba-standings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8228257239C290500B0DF50 /* Debug */,
+				B8228258239C290500B0DF50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8228259239C290500B0DF50 /* Build configuration list for PBXNativeTarget "nba-standingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B822825A239C290500B0DF50 /* Debug */,
+				B822825B239C290500B0DF50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B822822F239C290300B0DF50 /* Project object */;
+}
