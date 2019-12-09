@@ -16,8 +16,8 @@ class NBADataClient {
         case unknown
     }
 
-    let baseURLString = "https://data.nba.net"
-    let currentStandingsEndpoint = "/prod/v1/current/standings_all_no_sort_keys.json"
+    private let baseURLString = "https://data.nba.net"
+    private let currentStandingsEndpoint = "/prod/v1/current/standings_all_no_sort_keys.json"
 
     func fetchCurrentLeagueStandings(completion: @escaping (Result<[NBATeam], Error>) -> Void) {
 

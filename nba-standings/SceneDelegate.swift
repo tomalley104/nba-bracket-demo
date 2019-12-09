@@ -20,15 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
 
-        testClient.fetchCurrentLeagueStandings { result in
-            switch result {
-            case .success(let standings):
-                print(standings)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
