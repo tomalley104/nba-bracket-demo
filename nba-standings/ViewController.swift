@@ -20,10 +20,15 @@ class ViewController: UIViewController {
         }
     }
 
+    let cellID = "nbaTeamCell"
+
     // MARK: View Life-Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let nib = UINib(nibName: "\(NBATeamStandingCell.self)", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellID)
 
         client.fetchCurrentLeagueStandings { [weak self] result in
             DispatchQueue.main.async {
@@ -52,12 +57,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rightDetail", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! NBATeamStandingCell
         let teams = (indexPath.section == 0 ? nba.easternConference : nba.westernConference)
         let team = teams[indexPath.row]
-        cell.textLabel?.text = team.fullName
-        cell.detailTextLabel?.text = "\(team.stats.wins) W  |  \(team.stats.losses) L"
-
+        cell.update(for: team)
         return cell
     }
 }
