@@ -30,8 +30,18 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: "\(NBATeamStandingCell.self)", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellID)
 
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshStandings), for: .valueChanged)
+        tableView.refreshControl =  refreshControl
+
+        refreshStandings()
+    }
+
+    @objc func refreshStandings() {
         client.fetchCurrentLeagueStandings { [weak self] result in
             DispatchQueue.main.async {
+                self?.tableView.refreshControl?.endRefreshing()
+
                 switch result {
                 case .success(let nba):
                     self?.nba = nba
