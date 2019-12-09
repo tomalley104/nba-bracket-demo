@@ -22,7 +22,14 @@ struct NBA {
 
         let city: String
         let nickname: String
-        var fullName: String { return "\(city) \(nickname)" }
+        var fullName: String {
+            switch abbreviation {
+            // naturally LA teams have dodgy data :eyeroll:
+            case "LAC": return "L.A. Clippers"
+            case "LAL": return "L.A. Lakers"
+            default:    return "\(city) \(nickname)"
+            }
+        }
 
         let stats: Stats
 

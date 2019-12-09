@@ -73,6 +73,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.update(for: team)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "EAST" : "WEST"
+    }
 }
 
 

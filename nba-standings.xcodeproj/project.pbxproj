@@ -94,8 +94,8 @@
 				B8228243239C290500B0DF50 /* Assets.xcassets */,
 				B8228245239C290500B0DF50 /* LaunchScreen.storyboard */,
 				B8228248239C290500B0DF50 /* Info.plist */,
-				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
 				B8CBB7DB239E11AD0056B16C /* NBA.swift */,
+				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
 				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
 				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
 			);
