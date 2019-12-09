@@ -15,7 +15,7 @@
 		B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228245239C290500B0DF50 /* LaunchScreen.storyboard */; };
 		B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8228251239C290500B0DF50 /* nba_standingsTests.swift */; };
 		B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822825C239DC35C00B0DF50 /* NBADataClient.swift */; };
-		B822825F239DDF3100B0DF50 /* NBATeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822825E239DDF3100B0DF50 /* NBATeam.swift */; };
+		B8CBB7DC239E11AD0056B16C /* NBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB7DB239E11AD0056B16C /* NBA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		B8228251239C290500B0DF50 /* nba_standingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nba_standingsTests.swift; sourceTree = "<group>"; };
 		B8228253239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B822825C239DC35C00B0DF50 /* NBADataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataClient.swift; sourceTree = "<group>"; };
-		B822825E239DDF3100B0DF50 /* NBATeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeam.swift; sourceTree = "<group>"; };
+		B8CBB7DB239E11AD0056B16C /* NBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,6 @@
 		B822822E239C290300B0DF50 = {
 			isa = PBXGroup;
 			children = (
-				B822825E239DDF3100B0DF50 /* NBATeam.swift */,
 				B8228239239C290400B0DF50 /* nba-standings */,
 				B8228250239C290500B0DF50 /* nba-standingsTests */,
 				B8228238239C290400B0DF50 /* Products */,
@@ -86,12 +85,13 @@
 			children = (
 				B822823A239C290400B0DF50 /* AppDelegate.swift */,
 				B822823C239C290400B0DF50 /* SceneDelegate.swift */,
-				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
 				B822823E239C290400B0DF50 /* ViewController.swift */,
 				B8228240239C290400B0DF50 /* Main.storyboard */,
 				B8228243239C290500B0DF50 /* Assets.xcassets */,
 				B8228245239C290500B0DF50 /* LaunchScreen.storyboard */,
 				B8228248239C290500B0DF50 /* Info.plist */,
+				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
+				B8CBB7DB239E11AD0056B16C /* NBA.swift */,
 			);
 			path = "nba-standings";
 			sourceTree = "<group>";
@@ -206,9 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B822825F239DDF3100B0DF50 /* NBATeam.swift in Sources */,
 				B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */,
 				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
+				B8CBB7DC239E11AD0056B16C /* NBA.swift in Sources */,
 				B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */,
 				B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */,
 			);
