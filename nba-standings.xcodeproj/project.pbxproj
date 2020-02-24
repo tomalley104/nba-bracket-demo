@@ -19,7 +19,7 @@
 		B8ECA86C239EEAEE002A01E0 /* NBATeamStandingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */; };
 		B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */; };
 		E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D223FF459A005A0247 /* NBAAPIClient.swift */; };
-		E21755D523FF4643005A0247 /* NBADataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBADataService.swift */; };
+		E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBAAPIService.swift */; };
 		E21755D723FF4665005A0247 /* NBADataServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D623FF4665005A0247 /* NBADataServiceType.swift */; };
 		E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DA23FF5176005A0247 /* EndpointType.swift */; };
 		E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DC23FF5224005A0247 /* APIClientType.swift */; };
@@ -56,7 +56,7 @@
 		B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBATeamStandingCell.xib; sourceTree = "<group>"; };
 		B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeamStandingCell.swift; sourceTree = "<group>"; };
 		E21755D223FF459A005A0247 /* NBAAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIClient.swift; sourceTree = "<group>"; };
-		E21755D423FF4643005A0247 /* NBADataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataService.swift; sourceTree = "<group>"; };
+		E21755D423FF4643005A0247 /* NBAAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIService.swift; sourceTree = "<group>"; };
 		E21755D623FF4665005A0247 /* NBADataServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataServiceType.swift; sourceTree = "<group>"; };
 		E21755DA23FF5176005A0247 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		E21755DC23FF5224005A0247 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				E21755E223FF54B7005A0247 /* Protocol Definitions */,
 				E21755D223FF459A005A0247 /* NBAAPIClient.swift */,
 				E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */,
-				E21755D423FF4643005A0247 /* NBADataService.swift */,
+				E21755D423FF4643005A0247 /* NBAAPIService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
 				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
 				E21755D723FF4665005A0247 /* NBADataServiceType.swift in Sources */,
-				E21755D523FF4643005A0247 /* NBADataService.swift in Sources */,
+				E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */,
 				B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */,
 				E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */,
 				B8CBB7DC239E11AD0056B16C /* NBA.swift in Sources */,
