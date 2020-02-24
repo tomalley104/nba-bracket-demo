@@ -22,9 +22,11 @@
 		E21755D523FF4643005A0247 /* NBADataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBADataService.swift */; };
 		E21755D723FF4665005A0247 /* NBADataServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D623FF4665005A0247 /* NBADataServiceType.swift */; };
 		E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DA23FF5176005A0247 /* EndpointType.swift */; };
-		E21755DD23FF5224005A0247 /* NBAAPIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DC23FF5224005A0247 /* NBAAPIClientType.swift */; };
+		E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DC23FF5224005A0247 /* APIClientType.swift */; };
 		E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DE23FF53E6005A0247 /* HTTPMethod.swift */; };
 		E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */; };
+		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
+		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +59,11 @@
 		E21755D423FF4643005A0247 /* NBADataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataService.swift; sourceTree = "<group>"; };
 		E21755D623FF4665005A0247 /* NBADataServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataServiceType.swift; sourceTree = "<group>"; };
 		E21755DA23FF5176005A0247 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
-		E21755DC23FF5224005A0247 /* NBAAPIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIClientType.swift; sourceTree = "<group>"; };
+		E21755DC23FF5224005A0247 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		E21755DE23FF53E6005A0247 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIEndpoint.swift; sourceTree = "<group>"; };
+		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
+		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +114,9 @@
 				B8228248239C290500B0DF50 /* Info.plist */,
 				B8CBB7DB239E11AD0056B16C /* NBA.swift */,
 				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
-				E21755D123FF457F005A0247 /* Network */,
 				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
 				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
+				E21755D123FF457F005A0247 /* Networking */,
 			);
 			path = "nba-standings";
 			sourceTree = "<group>";
@@ -126,7 +130,7 @@
 			path = "nba-standingsTests";
 			sourceTree = "<group>";
 		};
-		E21755D123FF457F005A0247 /* Network */ = {
+		E21755D123FF457F005A0247 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				E21755E223FF54B7005A0247 /* Protocol Definitions */,
@@ -134,18 +138,28 @@
 				E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */,
 				E21755D423FF4643005A0247 /* NBADataService.swift */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		E21755E223FF54B7005A0247 /* Protocol Definitions */ = {
 			isa = PBXGroup;
 			children = (
-				E21755DA23FF5176005A0247 /* EndpointType.swift */,
-				E21755DE23FF53E6005A0247 /* HTTPMethod.swift */,
-				E21755DC23FF5224005A0247 /* NBAAPIClientType.swift */,
+				E263C63F240465FB0073944E /* Common */,
 				E21755D623FF4665005A0247 /* NBADataServiceType.swift */,
 			);
 			path = "Protocol Definitions";
+			sourceTree = "<group>";
+		};
+		E263C63F240465FB0073944E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E21755DC23FF5224005A0247 /* APIClientType.swift */,
+				E21755DA23FF5176005A0247 /* EndpointType.swift */,
+				E21755DE23FF53E6005A0247 /* HTTPMethod.swift */,
+				E263C63B2404600C0073944E /* URLSessionType.swift */,
+				E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,10 +264,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E263C63C2404600C0073944E /* URLSessionType.swift in Sources */,
 				E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */,
-				E21755DD23FF5224005A0247 /* NBAAPIClientType.swift in Sources */,
+				E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */,
 				B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */,
 				E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */,
+				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
 				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
 				E21755D723FF4665005A0247 /* NBADataServiceType.swift in Sources */,
 				E21755D523FF4643005A0247 /* NBADataService.swift in Sources */,

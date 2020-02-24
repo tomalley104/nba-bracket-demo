@@ -9,13 +9,14 @@
 import Foundation
 
 class NBADataService {
-    var apiClient: NBAAPIClientType = NBAAPIClient()
+    var apiClient: APIClientType = NBAAPIClient()
     
     func getStandings(_ completion: @escaping (Result<NBA, Error>) -> Void) {
-        apiClient.request(.standingsAll) { result in
+        apiClient.request(NBAAPIEndpoint.standingsAll) { result in
             switch result {
             case .success(let data):
-                print(try? JSONSerialization.jsonObject(with: data, options: .allowFragments))
+                // TODO: decode 
+                print(try? JSONSerialization.jsonObject(with: data, options: []))
             case .failure(let error):
                 print(error)
                 completion(.failure(error))

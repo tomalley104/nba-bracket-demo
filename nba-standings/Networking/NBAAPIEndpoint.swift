@@ -36,14 +36,4 @@ enum NBAAPIEndpoint: EndpointType {
     var httpMethod: HTTPMethod {
         return .get // currently all GET requests
     }
-            
-    func buildURLRequest() -> URLRequest? {
-        guard let url = URL(string: baseURL + path) else { return nil }
-        var request = URLRequest(url: url,
-                                 cachePolicy: .returnCacheDataElseLoad, // TODO: investigate
-                                 timeoutInterval: 10.0)
-        request.httpMethod = httpMethod.rawValue
-        request.allHTTPHeaderFields = headers
-        return request
-    }
 }
