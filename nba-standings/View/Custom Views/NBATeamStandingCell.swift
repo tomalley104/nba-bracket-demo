@@ -18,11 +18,11 @@ class NBATeamStandingCell: UITableViewCell {
     
     var standing: NBAStanding! {
         didSet {
-            update(for: standing)
+            updateUI(for: standing)
         }
     }
 
-    func update(for standing: NBAStanding) {
+    private func updateUI(for standing: NBAStanding) {
         logoImageView.image = UIImage(named: standing.shortName)
         nameLabel.text  = standing.fullName
         winLabel.text = standing.win + " W"

@@ -12,11 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let service = NBAAPIService()
-    var east = [NBAStanding]()
-    var west = [NBAStanding]()
+    private let service = NBAAPIService()
+    private var east = [NBAStanding]()
+    private var west = [NBAStanding]()
 
-    let cellID = "nbaTeamCell"
+    private let cellID = "nbaTeamCell"
 
     // MARK: View Life-Cycle
 
@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         service.getStandings { [weak self] result in
             switch result {
             case .success(let standings):
+                self?.east.removeAll()
+                self?.west.removeAll()
+
                 let ranked = standings.sorted(by: { $0.rank < $1.rank })
                 
                 ranked.forEach { standing in

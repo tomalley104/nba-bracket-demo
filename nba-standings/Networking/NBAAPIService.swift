@@ -12,6 +12,17 @@ class NBAAPIService {
     var apiClient: APIClientType = NBAAPIClient.default
     
     func getStandings(_ completion: @escaping (Result<[NBAStanding], Error>) -> Void) {
+        /*
+         DISCUSSION:
+            Standings endpoint returns all current standings,
+            but only includes teamId (ie- win/loss, no team name/identifying info)
+            SO we must also grab all teams metaData and combine the two,
+            making a complete `NBAStanding`.
+
+         Will optimize to cache metaData, but for now,
+         just running nested calls, as they are lightweight and directly dependent.
+        */
+
         getRawStandings { [weak self] standingsResult in
             switch standingsResult {
                 case .success(let rawStandings):
@@ -81,7 +92,6 @@ private extension NBAAPIService {
                 }
                 case .failure(let error):
                     completion(.failure(error))
-                    break
             }
         }
     }
@@ -125,7 +135,6 @@ private extension NBAAPIService {
                     } catch {
                         completion(.failure(error))
                     }
-                    break
                 case .failure(let error):
                     completion(.failure(error))
             }
@@ -141,7 +150,7 @@ private extension NBAStanding {
         guard
             let rank = Int(raw.conference.rank),
             let conference = NBAConference(rawValue: raw.conference.name) else {
-                assertionFailure() // TODO:
+                assertionFailure("RawConference somehow decoded without matching rank/name. \(raw)")
                 return nil
         }
         self.rank = rank
