@@ -11,14 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
-    let client = NBADataClient()
-    var nba: NBA = .empty {
-        didSet {
-            tableView.reloadData()
-            navigationItem.title = "NBA \(nba.year)"
-        }
-    }
+    
+    let service = NBAAPIService()
+    var east = [NBAStanding]()
+    var west = [NBAStanding]()
 
     let cellID = "nbaTeamCell"
 
@@ -38,21 +34,29 @@ class ViewController: UIViewController {
     }
 
     @objc func refreshStandings() {
-        client.fetchCurrentLeagueStandings { [weak self] result in
-            DispatchQueue.main.async {
-                self?.tableView.refreshControl?.endRefreshing()
-
-                switch result {
-                case .success(let nba):
-                    self?.nba = nba
-                case .failure(let error):
-                    self?.nba = .empty
-                    let alert = UIAlertController(title: "Error",
-                                                  message: error.localizedDescription,
-                                                  preferredStyle: .alert)
-                    self?.present(alert, animated: true)
+        service.getStandings { [weak self] result in
+            switch result {
+            case .success(let standings):
+                let ranked = standings.sorted(by: { $0.rank < $1.rank })
+                
+                ranked.forEach { standing in
+//                    guard standing.rank < 9 else { return }
+                
+                    switch standing.conference {
+                    case .east:
+                        self?.east.append(standing)
+                    case .west:
+                        self?.west.append(standing)
+                    }
                 }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.tableView.refreshControl?.endRefreshing()
+                }
+            case .failure(let error):
+                assertionFailure("whoops: \(error.localizedDescription)")
             }
+            
         }
     }
 }
@@ -63,14 +67,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nba.easternConference.count
+        switch section {
+        case 0: return east.count
+        case 1: return west.count
+        default: return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! NBATeamStandingCell
-        let teams = (indexPath.section == 0 ? nba.easternConference : nba.westernConference)
-        let team = teams[indexPath.row]
-        cell.update(for: team)
+        let standings = (indexPath.section == 0 ? east : west)
+        cell.standing = standings[indexPath.row]
         return cell
     }
 
