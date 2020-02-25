@@ -40,7 +40,6 @@ class ViewController: UIViewController {
                 let ranked = standings.sorted(by: { $0.rank < $1.rank })
                 
                 ranked.forEach { standing in
-//                    guard standing.rank < 9 else { return }
                 
                     switch standing.conference {
                     case .east:

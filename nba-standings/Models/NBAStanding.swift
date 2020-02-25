@@ -23,3 +23,15 @@ struct NBAStanding {
     let win: String
     let loss: String
 }
+
+// Not complex enough for its own file; only relevant here. 
+enum NBAConference: String {
+    case east, west
+}
+
+extension NBAConference: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return rawValue
+    }
+}
+
