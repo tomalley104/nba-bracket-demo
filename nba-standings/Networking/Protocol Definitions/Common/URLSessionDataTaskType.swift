@@ -9,7 +9,8 @@
 import Foundation
 
 // Wrap URLSessionDataTask for testability/mocking (see URLSessionType.swift)
-protocol URLSessionDataTaskType {    
+protocol URLSessionDataTaskType {
+    var currentRequest: URLRequest? { get }
     func resume()
 }
 

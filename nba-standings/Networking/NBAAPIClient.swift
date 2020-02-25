@@ -9,15 +9,24 @@
 import Foundation
 
 class NBAAPIClient: APIClientType {
+    static let `default` = NBAAPIClient(urlSession: URLSession(configuration: .default))
     
     enum ClientError: Error {
         case invalidURL
         case unknown
     }
     
-    var urlSession: URLSessionType = URLSession(configuration: .default)
+    let urlSession: URLSessionType
+    var cachePolicy: URLRequest.CachePolicy?
+    var timeoutInterval: Double?
     
-    // MARK: Init    
+    // MARK: Init
+    
+    init(urlSession: URLSessionType) {
+        self.urlSession = urlSession
+    }
+    
+    // MARK: Public
     
     func request(_ endpoint: EndpointType, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let request = buildURLRequest(from: endpoint) else {
@@ -37,15 +46,36 @@ class NBAAPIClient: APIClientType {
     
     // MARK: Helper
     
-    func buildURLRequest(from endpoint: EndpointType) -> URLRequest? {
+    private func buildURLRequest(from endpoint: EndpointType) -> URLRequest? {
         guard let url = URL(string: endpoint.baseURL + endpoint.path) else { return nil }
         
         var request = URLRequest(url: url,
-                                 cachePolicy: .reloadRevalidatingCacheData, // NOTE: unsure how API-NBA caches
-                                 timeoutInterval: 10.0)
+                                 cachePolicy: cachePolicy ?? .useProtocolCachePolicy,
+                                 timeoutInterval: timeoutInterval ?? 10.0)
         
-        request.httpMethod = endpoint.httpMethod.rawValue
+        request.httpMethod = endpoint.httpMethod.stringValue
         request.allHTTPHeaderFields = endpoint.headers
         return request
     }
 }
+
+/* NBAAPIClientTests:
+    - check using injected:
+        - session (mock)
+            - var dataTaskWithRequestCalled: Bool
+        - cachePolicy
+        - timeoutInterval
+    - defaults to:
+        - cachePolicy: .useProtocolCachePolicy
+        - timeoutInterval: 10.0
+    - behavior:
+        - builds URLRequest w/ ALL Endpoint-provided params
+        - calls resume() on dataTask
+        - succeeds when:
+            - dataTask returns non-nil data
+        - fails when:
+            - url is invalid (returns ClientError.invalidURL)
+            - dataTask returns nil data
+            - dataTask returns dataTask's error
+*/
+

@@ -9,28 +9,30 @@
 import Foundation
 
 class NBAAPIService {
-    var apiClient: APIClientType = NBAAPIClient()
+    var apiClient: APIClientType = NBAAPIClient.default
     
     func getStandings(_ completion: @escaping (Result<[NBAStanding], Error>) -> Void) {
         getRawStandings { [weak self] standingsResult in
             switch standingsResult {
-            case .success(let rawStandings):
-                
-                self?.getLeagueMetaData() { metaResult in
-                    switch metaResult {
-                    case .success(let teamsMeta):
-                        let standings: [NBAStanding] = rawStandings.compactMap({ raw in
-                            guard let meta = teamsMeta.first(where: { $0.teamId == raw.teamId }) else { return nil }
-                            return NBAStanding(raw, meta)
-                        })
-                        completion(.success(standings))
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
+                case .success(let rawStandings):
+
+                    self?.getLeagueMetaData() { metaResult in
+                        switch metaResult {
+                            case .success(let teamsMeta):
+
+                                let standings: [NBAStanding] = rawStandings.compactMap({ raw in
+                                    guard let meta = teamsMeta.first(where: { $0.teamId == raw.teamId }) else { return nil }
+                                    return NBAStanding(raw, meta)
+                                })
+
+                                completion(.success(standings))
+                            case .failure(let error):
+                                completion(.failure(error))
+                        }
                 }
                 
-            case .failure(let error):
-                completion(.failure(error))
+                case .failure(let error):
+                    completion(.failure(error))
             }
         }
     }
@@ -40,7 +42,7 @@ class NBAAPIService {
 // MARK: Decoding League Standings Response
 
 private extension NBAAPIService {
-        
+
     struct StandingsResponse: Decodable {
         enum CodingKeys: String, CodingKey {
             case api, standings
@@ -70,16 +72,16 @@ private extension NBAAPIService {
     private func getRawStandings(_ completion: @escaping (Result<[RawStanding], Error>) -> Void) {
         apiClient.request(NBAAPIEndpoint.standings) { result in
             switch result {
-            case .success(let data):
-                do {
-                    let response = try JSONDecoder().decode(StandingsResponse.self, from: data)
-                    completion(.success(response.rawStandings))
-                } catch {
-                    completion(.failure(error))
+                case .success(let data):
+                    do {
+                        let response = try JSONDecoder().decode(StandingsResponse.self, from: data)
+                        completion(.success(response.rawStandings))
+                    } catch {
+                        completion(.failure(error))
                 }
-            case .failure(let error):
-                completion(.failure(error))
-                break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
             }
         }
     }
@@ -116,16 +118,16 @@ private extension NBAAPIService {
     private func getLeagueMetaData(_ completion: @escaping (Result<[TeamMetaData], Error>) -> Void) {
         apiClient.request(NBAAPIEndpoint.leagueMetadata) { result in
             switch result {
-            case .success(let data):
-                do {
-                    let response = try JSONDecoder().decode(LeagueMetaDataResponse.self, from: data)
-                    completion(.success(response.teamsMetaData))
-                } catch {
+                case .success(let data):
+                    do {
+                        let response = try JSONDecoder().decode(LeagueMetaDataResponse.self, from: data)
+                        completion(.success(response.teamsMetaData))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                    break
+                case .failure(let error):
                     completion(.failure(error))
-                }
-                break
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }
@@ -139,8 +141,8 @@ private extension NBAStanding {
         guard
             let rank = Int(raw.conference.rank),
             let conference = NBAConference(rawValue: raw.conference.name) else {
-            assertionFailure() // TODO:
-            return nil
+                assertionFailure() // TODO:
+                return nil
         }
         self.rank = rank
         self.conference = conference
@@ -154,3 +156,23 @@ private extension NBAStanding {
         loss = raw.loss
     }
 }
+
+/* NBAAPIClientTests:
+    - check using injected:
+        - session (mock)
+            - var dataTaskWithRequestCalled: Bool
+        - cachePolicy
+        - timeoutInterval
+    - defaults to:
+        - cachePolicy: .useProtocolCachePolicy
+        - timeoutInterval: 10.0
+    - behavior:
+        - builds URLRequest with all endpoint params
+        - calls resume() on dataTask
+        - succeeds when:
+            - dataTask returns non-nil data
+        - fails when:
+            - url is invalid (returns ClientError.invalidURL)
+            - dataTask returns nil data
+            - dataTask returns dataTask's error
+*/

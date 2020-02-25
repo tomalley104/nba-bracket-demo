@@ -9,5 +9,7 @@
 import Foundation
 
 protocol NBAAPIServiceType {
+    var apiClient: APIClientType { get }
     
+    func getStandings(_ completion: @escaping (Result<[NBAStanding], Error>) -> Void) 
 }

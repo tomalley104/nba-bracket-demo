@@ -18,8 +18,8 @@ enum NBAAPIEndpoint: EndpointType {
     
     var path: String {
         switch self {
-        case .standings:        return "/standings/standard/2019"
-        case .leagueMetadata:   return "/teams/league/standard"
+            case .standings:        return "/standings/standard/2019"
+            case .leagueMetadata:   return "/teams/league/standard"
         }
     }
     

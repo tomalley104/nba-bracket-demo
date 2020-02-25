@@ -9,5 +9,11 @@
 import Foundation
 
 enum HTTPMethod: String {
-    case get = "GET"
+    case get
+    
+    var stringValue: String {
+        switch self {
+            case .get: return "GET"
+        }
+    }
 }
