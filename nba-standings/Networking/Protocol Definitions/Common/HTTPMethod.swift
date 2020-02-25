@@ -1,0 +1,19 @@
+//
+//  HTTPMethod.swift
+//  nba-standings
+//
+//  Created by Tom OMalley on 2/20/20.
+//  Copyright © 2020 37th Street. All rights reserved.
+//
+
+import Foundation
+
+enum HTTPMethod: String {
+    case get
+    
+    var stringValue: String {
+        switch self {
+            case .get: return "GET"
+        }
+    }
+}

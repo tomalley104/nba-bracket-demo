@@ -15,12 +15,18 @@ class NBATeamStandingCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var lossLabel: UILabel!
+    
+    var standing: NBAStanding! {
+        didSet {
+            updateUI(for: standing)
+        }
+    }
 
-    func update(for team: NBA.Team) {
-        logoImageView.image = UIImage(named: team.nickname.lowercased())
-        nameLabel.text  = team.fullName
-        winLabel.text = team.stats.wins + " W"
-        lossLabel.text = team.stats.losses + " L"
+    private func updateUI(for standing: NBAStanding) {
+        logoImageView.image = UIImage(named: standing.shortName)
+        nameLabel.text  = standing.fullName
+        winLabel.text = standing.win + " W"
+        lossLabel.text = standing.loss + " L"
     }
 
     override func prepareForReuse() {

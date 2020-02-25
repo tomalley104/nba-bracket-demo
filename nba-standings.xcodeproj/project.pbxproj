@@ -14,10 +14,18 @@
 		B8228244239C290500B0DF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8228243239C290500B0DF50 /* Assets.xcassets */; };
 		B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228245239C290500B0DF50 /* LaunchScreen.storyboard */; };
 		B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8228251239C290500B0DF50 /* nba_standingsTests.swift */; };
-		B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822825C239DC35C00B0DF50 /* NBADataClient.swift */; };
-		B8CBB7DC239E11AD0056B16C /* NBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB7DB239E11AD0056B16C /* NBA.swift */; };
 		B8ECA86C239EEAEE002A01E0 /* NBATeamStandingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */; };
 		B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */; };
+		E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D223FF459A005A0247 /* NBAAPIClient.swift */; };
+		E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBAAPIService.swift */; };
+		E21755D723FF4665005A0247 /* NBAAPIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */; };
+		E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DA23FF5176005A0247 /* EndpointType.swift */; };
+		E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DC23FF5224005A0247 /* APIClientType.swift */; };
+		E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DE23FF53E6005A0247 /* HTTPMethod.swift */; };
+		E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */; };
+		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
+		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
+		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +50,18 @@
 		B822824D239C290500B0DF50 /* nba-standingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nba-standingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8228251239C290500B0DF50 /* nba_standingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nba_standingsTests.swift; sourceTree = "<group>"; };
 		B8228253239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B822825C239DC35C00B0DF50 /* NBADataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBADataClient.swift; sourceTree = "<group>"; };
-		B8CBB7DB239E11AD0056B16C /* NBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBA.swift; sourceTree = "<group>"; };
 		B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBATeamStandingCell.xib; sourceTree = "<group>"; };
 		B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeamStandingCell.swift; sourceTree = "<group>"; };
+		E21755D223FF459A005A0247 /* NBAAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIClient.swift; sourceTree = "<group>"; };
+		E21755D423FF4643005A0247 /* NBAAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIService.swift; sourceTree = "<group>"; };
+		E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIServiceType.swift; sourceTree = "<group>"; };
+		E21755DA23FF5176005A0247 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		E21755DC23FF5224005A0247 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
+		E21755DE23FF53E6005A0247 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIEndpoint.swift; sourceTree = "<group>"; };
+		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
+		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
+		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +103,10 @@
 		B8228239239C290400B0DF50 /* nba-standings */ = {
 			isa = PBXGroup;
 			children = (
-				B822823A239C290400B0DF50 /* AppDelegate.swift */,
-				B822823C239C290400B0DF50 /* SceneDelegate.swift */,
-				B822823E239C290400B0DF50 /* ViewController.swift */,
-				B8228240239C290400B0DF50 /* Main.storyboard */,
-				B8228243239C290500B0DF50 /* Assets.xcassets */,
-				B8228245239C290500B0DF50 /* LaunchScreen.storyboard */,
-				B8228248239C290500B0DF50 /* Info.plist */,
-				B8CBB7DB239E11AD0056B16C /* NBA.swift */,
-				B822825C239DC35C00B0DF50 /* NBADataClient.swift */,
-				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
-				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
+				E2E817C62405D114007181C5 /* Apple */,
+				E2E817C42405D0E0007181C5 /* Models */,
+				E21755D123FF457F005A0247 /* Networking */,
+				E2E817C52405D0EF007181C5 /* View */,
 			);
 			path = "nba-standings";
 			sourceTree = "<group>";
@@ -109,6 +118,77 @@
 				B8228253239C290500B0DF50 /* Info.plist */,
 			);
 			path = "nba-standingsTests";
+			sourceTree = "<group>";
+		};
+		E21755D123FF457F005A0247 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E21755E223FF54B7005A0247 /* Protocol Definitions */,
+				E21755D223FF459A005A0247 /* NBAAPIClient.swift */,
+				E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */,
+				E21755D423FF4643005A0247 /* NBAAPIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E21755E223FF54B7005A0247 /* Protocol Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				E263C63F240465FB0073944E /* Common */,
+				E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */,
+			);
+			path = "Protocol Definitions";
+			sourceTree = "<group>";
+		};
+		E263C63F240465FB0073944E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E21755DC23FF5224005A0247 /* APIClientType.swift */,
+				E21755DA23FF5176005A0247 /* EndpointType.swift */,
+				E21755DE23FF53E6005A0247 /* HTTPMethod.swift */,
+				E263C63B2404600C0073944E /* URLSessionType.swift */,
+				E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E2E817C42405D0E0007181C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E26801342404F727004E69D7 /* NBAStanding.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2E817C52405D0EF007181C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2E817C72405D135007181C5 /* Custom Views */,
+				B822823E239C290400B0DF50 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2E817C62405D114007181C5 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				B822823A239C290400B0DF50 /* AppDelegate.swift */,
+				B822823C239C290400B0DF50 /* SceneDelegate.swift */,
+				B8228240239C290400B0DF50 /* Main.storyboard */,
+				B8228243239C290500B0DF50 /* Assets.xcassets */,
+				B8228245239C290500B0DF50 /* LaunchScreen.storyboard */,
+				B8228248239C290500B0DF50 /* Info.plist */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
+		E2E817C72405D135007181C5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
+				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,12 +293,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */,
+				E263C63C2404600C0073944E /* URLSessionType.swift in Sources */,
+				E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */,
+				E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */,
+				E26801352404F727004E69D7 /* NBAStanding.swift in Sources */,
+				E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */,
+				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
 				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
+				E21755D723FF4665005A0247 /* NBAAPIServiceType.swift in Sources */,
+				E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */,
 				B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */,
-				B8CBB7DC239E11AD0056B16C /* NBA.swift in Sources */,
+				E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */,
 				B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */,
 				B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */,
+				E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2FHST7LZF;
-				INFOPLIST_FILE = "nba-standings/Info.plist";
+				INFOPLIST_FILE = "nba-standings/Apple/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2FHST7LZF;
-				INFOPLIST_FILE = "nba-standings/Info.plist";
+				INFOPLIST_FILE = "nba-standings/Apple/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
