@@ -18,8 +18,8 @@ struct NBAStanding {
     let fullName: String
     
     let conference: NBAConference
-    let rank: String
-        
+    let rank: Int
+    
     let win: String
     let loss: String
 }

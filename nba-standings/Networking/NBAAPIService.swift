@@ -136,12 +136,15 @@ private extension NBAAPIService {
 private extension NBAStanding {
     
     init?(_ raw: NBAAPIService.RawStanding, _ meta: NBAAPIService.TeamMetaData) {
-        guard let conf = NBAConference(rawValue: raw.conference.name) else {
-            assertionFailure()
+        guard
+            let rank = Int(raw.conference.rank),
+            let conference = NBAConference(rawValue: raw.conference.name) else {
+            assertionFailure() // TODO:
             return nil
         }
-        conference = conf
-        rank = raw.conference.rank
+        self.rank = rank
+        self.conference = conference
+        
         teamId = meta.teamId
         shortName = meta.shortName
         city = meta.city

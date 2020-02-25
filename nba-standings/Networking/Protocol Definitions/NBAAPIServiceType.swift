@@ -1,5 +1,5 @@
 //
-//  NBADataServiceType.swift
+//  NBAAPIServiceType.swift
 //  nba-standings
 //
 //  Created by Tom OMalley on 2/20/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol NBADataServiceType {
+protocol NBAAPIServiceType {
     
 }
