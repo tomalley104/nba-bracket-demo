@@ -10,7 +10,7 @@ import Foundation
 
 enum NBAAPIEndpoint: EndpointType {
     case standings
-    case teamsMetadata
+    case leagueMetadata
     
     var baseURL: String {
         return "https://api-nba-v1.p.rapidapi.com"
@@ -18,8 +18,8 @@ enum NBAAPIEndpoint: EndpointType {
     
     var path: String {
         switch self {
-        case .standings:  return "/standings/standard/2019"
-        case .teamsMetadata: return ""
+        case .standings:        return "/standings/standard/2019"
+        case .leagueMetadata:   return "/teams/league/standard"
         }
     }
     

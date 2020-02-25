@@ -27,6 +27,8 @@
 		E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */; };
 		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
 		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
+		E26801332404F6BD004E69D7 /* NBAConference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801322404F6BD004E69D7 /* NBAConference.swift */; };
+		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIEndpoint.swift; sourceTree = "<group>"; };
 		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
 		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
+		E26801322404F6BD004E69D7 /* NBAConference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAConference.swift; sourceTree = "<group>"; };
+		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
 				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
 				E21755D123FF457F005A0247 /* Networking */,
+				E26801322404F6BD004E69D7 /* NBAConference.swift */,
+				E26801342404F727004E69D7 /* NBAStanding.swift */,
 			);
 			path = "nba-standings";
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 				E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */,
 				E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */,
 				B822825D239DC35C00B0DF50 /* NBADataClient.swift in Sources */,
+				E26801352404F727004E69D7 /* NBAStanding.swift in Sources */,
 				E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */,
 				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
 				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
+				E26801332404F6BD004E69D7 /* NBAConference.swift in Sources */,
 				E21755D723FF4665005A0247 /* NBADataServiceType.swift in Sources */,
 				E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */,
 				B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */,
