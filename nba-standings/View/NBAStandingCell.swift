@@ -17,23 +17,24 @@ class NBAStandingCell: UITableViewCell {
     @IBOutlet weak var lossLabel: UILabel!
 
     // TODO: change to VM property
-    var standing: NBAStanding! {
+    var viewModel: NBAStandingCellViewModel? {
         didSet {
-            updateUI(for: standing)
+            updateUI()
         }
     }
 
-    private func updateUI(for standing: NBAStanding) {
-        // TODO: extract logic into VM
-        logoImageView.image = UIImage(named: standing.shortName)
-        nameLabel.text  = standing.fullName
-        winLabel.text = standing.win + " W"
-        lossLabel.text = standing.loss + " L"
+    private func updateUI() {
+        logoImageView.image = viewModel?.logoImage
+        nameLabel.text = viewModel?.nameLabelText
+        winLabel.text = viewModel?.winLabelText
+        lossLabel.text = viewModel?.lossLabelText
     }
 
     override func prepareForReuse() {
         logoImageView.image = nil
-        [nameLabel, winLabel, lossLabel].forEach { $0.text = nil }
+        nameLabel.text = nil
+        winLabel.attributedText = nil
+        lossLabel.attributedText = nil
         super.prepareForReuse()
     }
 }

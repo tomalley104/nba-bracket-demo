@@ -27,6 +27,7 @@
 		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
 		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
 		E2F806102407087A0046BBE5 /* LeagueStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */; };
+		E2F80626240723D50046BBE5 /* NBAStandingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
 		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
 		E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStandingsViewModel.swift; sourceTree = "<group>"; };
+		E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAStandingCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */,
 				B8ECA86B239EEAEE002A01E0 /* NBAStandingCell.xib */,
 				B8ECA86D239EEDE7002A01E0 /* NBAStandingCell.swift */,
+				E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */,
 				B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */,
 				B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */,
+				E2F80626240723D50046BBE5 /* NBAStandingCellViewModel.swift in Sources */,
 				E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

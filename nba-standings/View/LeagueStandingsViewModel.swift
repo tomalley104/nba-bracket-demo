@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 
 class LeagueStandingsViewModel {
+
     static func `default`() -> LeagueStandingsViewModel {
         let service = NBAAPIService.default()
         return LeagueStandingsViewModel(apiService: service)
     }
 
     // MARK: UIViewController
-    let title: String = "League Standings"
+    let title: String = "2019 NBA Standings"
 
     // MARK: UITableView
     var numberOfSections = 2
@@ -42,7 +43,7 @@ class LeagueStandingsViewModel {
         }
     }
 
-    // MARK: TableView-Related
+    // MARK: UITableView Functions
 
     func numberOfRows(in section: Int) -> Int {
         switch section {
@@ -60,7 +61,7 @@ class LeagueStandingsViewModel {
         }
     }
 
-    func cellViewModel(for indexPath: IndexPath) -> NBAStanding {
+    func cellViewModel(for indexPath: IndexPath) -> NBAStandingCellViewModel {
         var conferenceArray: [NBAStanding]
         switch indexPath.section {
             case 0: conferenceArray = east
@@ -68,9 +69,8 @@ class LeagueStandingsViewModel {
             default:
                 fatalError("\(type(of: self)) - Section \(indexPath.section) out of bounds")
         }
-        // TODO: just give standing for now;
-        // need to commit this work and then make VM in next commit
-        return conferenceArray[indexPath.row]
+
+        return NBAStandingCellViewModel(standing: conferenceArray[indexPath.row])
     }
 
     // MARK: Fetching Data

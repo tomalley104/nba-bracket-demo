@@ -10,13 +10,14 @@ import UIKit
 
 class LeagueStandingsViewController: UITableViewController {
 
-    var viewModel: LeagueStandingsViewModel = .default()
+    let viewModel: LeagueStandingsViewModel = .default()
 
     // MARK: View Life-Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = viewModel.title
         setUpTableView()
         setUpRefreshControl()
         refreshStandings()
@@ -35,7 +36,7 @@ class LeagueStandingsViewController: UITableViewController {
         refreshControl.addTarget(self,
                                  action: #selector(refreshStandings),
                                  for: .valueChanged)
-        tableView.refreshControl =  refreshControl
+        tableView.refreshControl = refreshControl
     }
 
     // MARK: UIRefreshControl
@@ -43,10 +44,10 @@ class LeagueStandingsViewController: UITableViewController {
     @objc func refreshStandings() {
         viewModel.refreshStandings { [weak self] result in
 
-            var needsRefresh = false
+            var shouldReload = false
             defer {
                 DispatchQueue.main.async {
-                    if needsRefresh {
+                    if shouldReload {
                         self?.tableView.reloadData()
                     }
                     self?.tableView.refreshControl?.endRefreshing()
@@ -55,7 +56,7 @@ class LeagueStandingsViewController: UITableViewController {
 
             switch result {
                 case .success(let hasNew):
-                    needsRefresh = hasNew
+                    shouldReload = hasNew
                 case .failure(let error):
                     // TODO: indicate this to the user
                     assertionFailure("whoops: \(error.localizedDescription)")
@@ -76,8 +77,7 @@ class LeagueStandingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellID,
                                                  for: indexPath) as! NBAStandingCell
-        // TODO: just give standing for now; make VM in next commit
-         cell.standing = viewModel.cellViewModel(for: indexPath)
+        cell.viewModel = viewModel.cellViewModel(for: indexPath)
         return cell
     }
 

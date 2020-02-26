@@ -9,6 +9,7 @@
 import Foundation
 
 class NBAAPIService: NBAAPIServiceType {
+
     static func `default`() -> NBAAPIService {
         return NBAAPIService(apiClient: NBAAPIClient.default())
     }
