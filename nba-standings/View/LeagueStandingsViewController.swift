@@ -8,10 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LeagueStandingsViewController: UITableViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    
     private let service = NBAAPIService()
     private var east = [NBAStanding]()
     private var west = [NBAStanding]()
@@ -23,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.rowHeight = 100
         let nib = UINib(nibName: "\(NBATeamStandingCell.self)", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellID)
 
@@ -61,14 +60,14 @@ class ViewController: UIViewController {
             
         }
     }
-}
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    // MARK: UITableViewDataSource / UITableViewDelegate
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return east.count
         case 1: return west.count
@@ -76,14 +75,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! NBATeamStandingCell
         let standings = (indexPath.section == 0 ? east : west)
         cell.standing = standings[indexPath.row]
         return cell
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0 ? "EAST" : "WEST"
     }
 }

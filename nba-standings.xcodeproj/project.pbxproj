@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823A239C290400B0DF50 /* AppDelegate.swift */; };
 		B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823C239C290400B0DF50 /* SceneDelegate.swift */; };
-		B822823F239C290400B0DF50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823E239C290400B0DF50 /* ViewController.swift */; };
+		B822823F239C290400B0DF50 /* LeagueStandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822823E239C290400B0DF50 /* LeagueStandingsViewController.swift */; };
 		B8228242239C290400B0DF50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228240239C290400B0DF50 /* Main.storyboard */; };
 		B8228244239C290500B0DF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8228243239C290500B0DF50 /* Assets.xcassets */; };
 		B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228245239C290500B0DF50 /* LaunchScreen.storyboard */; };
@@ -26,6 +26,7 @@
 		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
 		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
 		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
+		E2F806102407087A0046BBE5 /* LeagueStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 		B8228237239C290400B0DF50 /* nba-standings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nba-standings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B822823A239C290400B0DF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B822823C239C290400B0DF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B822823E239C290400B0DF50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B822823E239C290400B0DF50 /* LeagueStandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStandingsViewController.swift; sourceTree = "<group>"; };
 		B8228241239C290400B0DF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8228243239C290500B0DF50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8228246239C290500B0DF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
 		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
 		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
+		E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStandingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +165,10 @@
 		E2E817C52405D0EF007181C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E2E817C72405D135007181C5 /* Custom Views */,
-				B822823E239C290400B0DF50 /* ViewController.swift */,
+				B822823E239C290400B0DF50 /* LeagueStandingsViewController.swift */,
+				E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */,
+				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
+				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,15 +184,6 @@
 				B8228248239C290500B0DF50 /* Info.plist */,
 			);
 			path = Apple;
-			sourceTree = "<group>";
-		};
-		E2E817C72405D135007181C5 /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				B8ECA86B239EEAEE002A01E0 /* NBATeamStandingCell.xib */,
-				B8ECA86D239EEDE7002A01E0 /* NBATeamStandingCell.swift */,
-			);
-			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,12 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E263C63C2404600C0073944E /* URLSessionType.swift in Sources */,
+				E2F806102407087A0046BBE5 /* LeagueStandingsViewModel.swift in Sources */,
 				E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */,
 				E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */,
 				E26801352404F727004E69D7 /* NBAStanding.swift in Sources */,
 				E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */,
 				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
-				B822823F239C290400B0DF50 /* ViewController.swift in Sources */,
+				B822823F239C290400B0DF50 /* LeagueStandingsViewController.swift in Sources */,
 				E21755D723FF4665005A0247 /* NBAAPIServiceType.swift in Sources */,
 				E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */,
 				B8ECA86E239EEDE7002A01E0 /* NBATeamStandingCell.swift in Sources */,
@@ -477,7 +473,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -496,7 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.37st.nba-standings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
