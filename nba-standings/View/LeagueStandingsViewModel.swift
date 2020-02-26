@@ -7,3 +7,106 @@
 //
 
 import Foundation
+import UIKit
+
+class LeagueStandingsViewModel {
+    static func `default`() -> LeagueStandingsViewModel {
+        let service = NBAAPIService.default()
+        return LeagueStandingsViewModel(apiService: service)
+    }
+
+    // MARK: UIViewController
+    let title: String = "League Standings"
+
+    // MARK: UITableView
+    var numberOfSections = 2
+    let rowHeight: CGFloat = 100
+    let cellID: String = "standingsCell"
+    let cellClass: UITableViewCell.Type = NBAStandingCell.self
+    var cellNib: UINib { return UINib(nibName: "\(cellClass)", bundle: .main) }
+
+    // MARK: Standings
+    private let apiService: NBAAPIServiceType
+    private(set) var east: [NBAStanding]
+    private(set) var west: [NBAStanding]
+
+    // MARK: Init
+
+    init(apiService: NBAAPIServiceType, cachedStandings: [NBAStanding]? = nil) {
+        self.apiService = apiService
+        self.east = [NBAStanding]()
+        self.west = [NBAStanding]()
+
+        if let standings = cachedStandings {
+            updateStandingsArrays(with: standings)
+        }
+    }
+
+    // MARK: TableView-Related
+
+    func numberOfRows(in section: Int) -> Int {
+        switch section {
+            case 0: return east.count
+            case 1: return west.count
+            default: return 0
+        }
+    }
+
+    func titleForHeader(in section: Int) -> String? {
+        switch section {
+            case 0: return "EAST"
+            case 1: return "WEST"
+            default: return nil
+        }
+    }
+
+    func cellViewModel(for indexPath: IndexPath) -> NBAStanding {
+        var conferenceArray: [NBAStanding]
+        switch indexPath.section {
+            case 0: conferenceArray = east
+            case 1: conferenceArray = west
+            default:
+                fatalError("\(type(of: self)) - Section \(indexPath.section) out of bounds")
+        }
+        // TODO: just give standing for now;
+        // need to commit this work and then make VM in next commit
+        return conferenceArray[indexPath.row]
+    }
+
+    // MARK: Fetching Data
+
+    func refreshStandings(completion: @escaping (Result<Bool, Error>) -> Void) {
+        apiService.getStandings { [weak self] result in
+            switch result {
+                case .success(let fetched):
+                    let hasNew = (self?.updateStandingsArrays(with: fetched) ?? false)
+                    completion(.success(hasNew))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+    }
+
+    // MARK: Helper
+
+     @discardableResult private func updateStandingsArrays(with standings: [NBAStanding]) -> Bool {
+        // TODO:
+        // check if we have updated information.
+        // for now just assume we have new data.
+
+        east.removeAll(keepingCapacity: true)
+        west.removeAll(keepingCapacity: true)
+
+        let ranked = standings.sorted(by: { $0.rank < $1.rank })
+
+        ranked.forEach { standing in
+            switch standing.conference {
+            case .east:
+                east.append(standing)
+            case .west:
+                west.append(standing)
+            }
+        }
+        return true
+    }
+}

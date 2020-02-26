@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class NBATeamStandingCell: UITableViewCell {
+class NBAStandingCell: UITableViewCell {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var lossLabel: UILabel!
-    
+
+    // TODO: change to VM property
     var standing: NBAStanding! {
         didSet {
             updateUI(for: standing)
@@ -23,6 +24,7 @@ class NBATeamStandingCell: UITableViewCell {
     }
 
     private func updateUI(for standing: NBAStanding) {
+        // TODO: extract logic into VM
         logoImageView.image = UIImage(named: standing.shortName)
         nameLabel.text  = standing.fullName
         winLabel.text = standing.win + " W"

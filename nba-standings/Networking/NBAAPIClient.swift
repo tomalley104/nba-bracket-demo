@@ -9,7 +9,10 @@
 import Foundation
 
 class NBAAPIClient: APIClientType {
-    static let `default` = NBAAPIClient(urlSession: URLSession(configuration: .default))
+    static func `default`() -> NBAAPIClient {
+        let session = URLSession(configuration: .default)
+        return NBAAPIClient(urlSession: session)
+    }
     
     enum ClientError: Error {
         case invalidURL

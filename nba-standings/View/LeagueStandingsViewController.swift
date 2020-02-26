@@ -10,83 +10,80 @@ import UIKit
 
 class LeagueStandingsViewController: UITableViewController {
 
-    private let service = NBAAPIService()
-    private var east = [NBAStanding]()
-    private var west = [NBAStanding]()
-
-    private let cellID = "nbaTeamCell"
+    var viewModel: LeagueStandingsViewModel = .default()
 
     // MARK: View Life-Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = 100
-        let nib = UINib(nibName: "\(NBATeamStandingCell.self)", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellID)
-
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshStandings), for: .valueChanged)
-        tableView.refreshControl =  refreshControl
-
+        setUpTableView()
+        setUpRefreshControl()
         refreshStandings()
     }
 
-    @objc func refreshStandings() {
-        service.getStandings { [weak self] result in
-            switch result {
-            case .success(let standings):
-                self?.east.removeAll()
-                self?.west.removeAll()
+    // MARK: Set Up
 
-                let ranked = standings.sorted(by: { $0.rank < $1.rank })
-                
-                ranked.forEach { standing in
-                
-                    switch standing.conference {
-                    case .east:
-                        self?.east.append(standing)
-                    case .west:
-                        self?.west.append(standing)
-                    }
-                }
+    private func setUpTableView() {
+        tableView.rowHeight = viewModel.rowHeight
+        tableView.register(viewModel.cellNib,
+                           forCellReuseIdentifier: viewModel.cellID)
+    }
+
+    private func setUpRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(refreshStandings),
+                                 for: .valueChanged)
+        tableView.refreshControl =  refreshControl
+    }
+
+    // MARK: UIRefreshControl
+
+    @objc func refreshStandings() {
+        viewModel.refreshStandings { [weak self] result in
+
+            var needsRefresh = false
+            defer {
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    if needsRefresh {
+                        self?.tableView.reloadData()
+                    }
                     self?.tableView.refreshControl?.endRefreshing()
                 }
-            case .failure(let error):
-                assertionFailure("whoops: \(error.localizedDescription)")
             }
-            
+
+            switch result {
+                case .success(let hasNew):
+                    needsRefresh = hasNew
+                case .failure(let error):
+                    // TODO: indicate this to the user
+                    assertionFailure("whoops: \(error.localizedDescription)")
+            }
         }
     }
 
-    // MARK: UITableViewDataSource / UITableViewDelegate
+    // MARK: UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return viewModel.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return east.count
-        case 1: return west.count
-        default: return 0
-        }
+        return viewModel.numberOfRows(in: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! NBATeamStandingCell
-        let standings = (indexPath.section == 0 ? east : west)
-        cell.standing = standings[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellID,
+                                                 for: indexPath) as! NBAStandingCell
+        // TODO: just give standing for now; make VM in next commit
+         cell.standing = viewModel.cellViewModel(for: indexPath)
         return cell
     }
 
+    // MARK: UITableViewDelegate
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "EAST" : "WEST"
+        return viewModel.titleForHeader(in: section)
     }
 }
-
-
-
-

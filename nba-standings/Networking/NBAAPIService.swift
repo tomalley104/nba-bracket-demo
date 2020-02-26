@@ -8,9 +8,21 @@
 
 import Foundation
 
-class NBAAPIService {
-    var apiClient: APIClientType = NBAAPIClient.default
-    
+class NBAAPIService: NBAAPIServiceType {
+    static func `default`() -> NBAAPIService {
+        return NBAAPIService(apiClient: NBAAPIClient.default())
+    }
+
+    let apiClient: APIClientType
+
+    // MARK: Init
+
+    init(apiClient: APIClientType) {
+        self.apiClient = apiClient
+    }
+
+    // MARK: Public Functions
+
     func getStandings(_ completion: @escaping (Result<[NBAStanding], Error>) -> Void) {
         /*
          DISCUSSION:
