@@ -47,10 +47,10 @@ class LeagueStandingsViewController: UITableViewController {
             var shouldReload = false
             defer {
                 DispatchQueue.main.async {
+                    self?.tableView.refreshControl?.endRefreshing()
                     if shouldReload {
                         self?.tableView.reloadData()
                     }
-                    self?.tableView.refreshControl?.endRefreshing()
                 }
             }
 
@@ -59,7 +59,7 @@ class LeagueStandingsViewController: UITableViewController {
                     shouldReload = hasNew
                 case .failure(let error):
                     // TODO: indicate this to the user
-                    assertionFailure("whoops: \(error.localizedDescription)")
+                    assertionFailure(error.localizedDescription)
             }
         }
     }

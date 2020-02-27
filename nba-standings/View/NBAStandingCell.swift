@@ -10,31 +10,27 @@ import Foundation
 import UIKit
 
 class NBAStandingCell: UITableViewCell {
-
+    
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var lossLabel: UILabel!
-
-    // TODO: change to VM property
+    
     var viewModel: NBAStandingCellViewModel? {
-        didSet {
-            updateUI()
-        }
+        didSet { updateUI() }
     }
-
+    
     private func updateUI() {
         logoImageView.image = viewModel?.logoImage
         nameLabel.text = viewModel?.nameLabelText
         winLabel.text = viewModel?.winLabelText
         lossLabel.text = viewModel?.lossLabelText
     }
-
+    
+    // MARK: UITableViewCell
+    
     override func prepareForReuse() {
-        logoImageView.image = nil
-        nameLabel.text = nil
-        winLabel.attributedText = nil
-        lossLabel.attributedText = nil
         super.prepareForReuse()
+        viewModel = nil
     }
 }

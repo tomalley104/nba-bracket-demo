@@ -10,49 +10,48 @@ import Foundation
 import UIKit
 
 class LeagueStandingsViewModel {
-
+    
     static func `default`() -> LeagueStandingsViewModel {
         let service = NBAAPIService.default()
         return LeagueStandingsViewModel(apiService: service)
     }
-
+    
     // MARK: UIViewController
-    let title: String = "2019 NBA Standings"
-
+    let title: String = "2019-20 NBA Standings"
+    
     // MARK: UITableView
     var numberOfSections = 2
     let rowHeight: CGFloat = 100
-    let cellID: String = "standingsCell"
-    let cellClass: UITableViewCell.Type = NBAStandingCell.self
-    var cellNib: UINib { return UINib(nibName: "\(cellClass)", bundle: .main) }
-
+    let cellID: String = "\(NBAStandingCell.self)"
+    var cellNib: UINib {
+        return UINib(nibName: "\(NBAStandingCell.self)", bundle: .main)
+    }
+    
     // MARK: Standings
     private let apiService: NBAAPIServiceType
-    private(set) var east: [NBAStanding]
-    private(set) var west: [NBAStanding]
-
+    private var cellVMs: (east: [NBAStandingCellViewModel], west: [NBAStandingCellViewModel])
+    
     // MARK: Init
-
+    
     init(apiService: NBAAPIServiceType, cachedStandings: [NBAStanding]? = nil) {
         self.apiService = apiService
-        self.east = [NBAStanding]()
-        self.west = [NBAStanding]()
-
+        self.cellVMs = (east: [], west: [])
+        
         if let standings = cachedStandings {
-            updateStandingsArrays(with: standings)
+            createCellViewModels(for: standings)
         }
     }
-
+    
     // MARK: UITableView Functions
-
+    
     func numberOfRows(in section: Int) -> Int {
         switch section {
-            case 0: return east.count
-            case 1: return west.count
+            case 0: return cellVMs.east.count
+            case 1: return cellVMs.west.count
             default: return 0
         }
     }
-
+    
     func titleForHeader(in section: Int) -> String? {
         switch section {
             case 0: return "EAST"
@@ -60,53 +59,48 @@ class LeagueStandingsViewModel {
             default: return nil
         }
     }
-
+    
     func cellViewModel(for indexPath: IndexPath) -> NBAStandingCellViewModel {
-        var conferenceArray: [NBAStanding]
         switch indexPath.section {
-            case 0: conferenceArray = east
-            case 1: conferenceArray = west
+            case 0: return cellVMs.east[indexPath.row]
+            case 1: return cellVMs.west[indexPath.row]
             default:
                 fatalError("\(type(of: self)) - Section \(indexPath.section) out of bounds")
         }
-
-        return NBAStandingCellViewModel(standing: conferenceArray[indexPath.row])
     }
-
+    
     // MARK: Fetching Data
-
+    
     func refreshStandings(completion: @escaping (Result<Bool, Error>) -> Void) {
         apiService.getStandings { [weak self] result in
             switch result {
-                case .success(let fetched):
-                    let hasNew = (self?.updateStandingsArrays(with: fetched) ?? false)
+                case .success(let standings):
+                    let hasNew = (self?.createCellViewModels(for: standings) ?? false)
                     completion(.success(hasNew))
                 case .failure(let error):
                     completion(.failure(error))
             }
         }
     }
-
+    
     // MARK: Helper
-
-     @discardableResult private func updateStandingsArrays(with standings: [NBAStanding]) -> Bool {
+    
+    @discardableResult private func createCellViewModels(for standings: [NBAStanding]) -> Bool {
+        cellVMs.east.removeAll(keepingCapacity: true)
+        cellVMs.west.removeAll(keepingCapacity: true)
+        
+        let ranked = standings.sorted(by: { $0.rank < $1.rank })
+        ranked.forEach { standing in
+            let newVM = NBAStandingCellViewModel(standing: standing)
+            switch standing.conference {
+                case .east: cellVMs.east.append(newVM)
+                case .west: cellVMs.west.append(newVM)
+            }
+        }
+        
         // TODO:
         // check if we have updated information.
         // for now just assume we have new data.
-
-        east.removeAll(keepingCapacity: true)
-        west.removeAll(keepingCapacity: true)
-
-        let ranked = standings.sorted(by: { $0.rank < $1.rank })
-
-        ranked.forEach { standing in
-            switch standing.conference {
-            case .east:
-                east.append(standing)
-            case .west:
-                west.append(standing)
-            }
-        }
         return true
     }
 }
