@@ -21,7 +21,7 @@ class LeagueStandingsViewModel {
     
     // MARK: UITableView
     var numberOfSections = 2
-    let rowHeight: CGFloat = 100
+    let rowHeight: CGFloat = 75
     let cellID: String = "\(NBAStandingCell.self)"
     var cellNib: UINib {
         return UINib(nibName: "\(NBAStandingCell.self)", bundle: .main)
@@ -54,8 +54,8 @@ class LeagueStandingsViewModel {
     
     func titleForHeader(in section: Int) -> String? {
         switch section {
-            case 0: return "EAST"
-            case 1: return "WEST"
+            case 0: return "EASTERN CONFERENCE"
+            case 1: return "WESTERN CONFERENCE"
             default: return nil
         }
     }

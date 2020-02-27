@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
 
         // TODO: put this in rootVC/app coordinator
-        window?.rootViewController = UINavigationController(rootViewController: LeagueStandingsViewController())
+        let standingsVC = LeagueStandingsViewController(viewModel: .default())
+        window?.rootViewController = UINavigationController(rootViewController: standingsVC)
         window?.makeKeyAndVisible()
     }
 

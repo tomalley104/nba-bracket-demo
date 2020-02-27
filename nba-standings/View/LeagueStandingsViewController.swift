@@ -10,7 +10,18 @@ import UIKit
 
 class LeagueStandingsViewController: UITableViewController {
 
-    let viewModel: LeagueStandingsViewModel = .default()
+    let viewModel: LeagueStandingsViewModel
+
+    // MARK: Init
+
+    init(viewModel: LeagueStandingsViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .insetGrouped)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: View Life-Cycle
 
