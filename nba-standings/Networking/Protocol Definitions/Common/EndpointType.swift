@@ -13,3 +13,13 @@ protocol EndpointType {
     var httpMethod: HTTPMethod { get }
     var headers: [String:String]? { get }
 }
+
+enum HTTPMethod: String {
+    case get
+
+    var stringValue: String {
+        switch self {
+            case .get: return "GET"
+        }
+    }
+}

@@ -13,18 +13,20 @@
 		B8228242239C290400B0DF50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228240239C290400B0DF50 /* Main.storyboard */; };
 		B8228244239C290500B0DF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8228243239C290500B0DF50 /* Assets.xcassets */; };
 		B8228247239C290500B0DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8228245239C290500B0DF50 /* LaunchScreen.storyboard */; };
-		B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8228251239C290500B0DF50 /* nba_standingsTests.swift */; };
+		B8228252239C290500B0DF50 /* NBANetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8228251239C290500B0DF50 /* NBANetworkServiceTests.swift */; };
 		B8ECA86C239EEAEE002A01E0 /* NBAStandingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8ECA86B239EEAEE002A01E0 /* NBAStandingCell.xib */; };
 		B8ECA86E239EEDE7002A01E0 /* NBAStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ECA86D239EEDE7002A01E0 /* NBAStandingCell.swift */; };
+		E20ED6012408851F0017C8E4 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ED6002408851F0017C8E4 /* MockAPIClient.swift */; };
+		E20ED603240887F40017C8E4 /* NBATeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ED602240887F40017C8E4 /* NBATeam.swift */; };
+		E20ED605240893DF0017C8E4 /* MockURLSession+DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ED604240893DF0017C8E4 /* MockURLSession+DataTask.swift */; };
+		E20ED609240894D30017C8E4 /* NBAAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20ED608240894D30017C8E4 /* NBAAPIClientTests.swift */; };
 		E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D223FF459A005A0247 /* NBAAPIClient.swift */; };
-		E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBAAPIService.swift */; };
-		E21755D723FF4665005A0247 /* NBAAPIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */; };
+		E21755D523FF4643005A0247 /* NBANetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D423FF4643005A0247 /* NBANetworkService.swift */; };
+		E21755D723FF4665005A0247 /* NBANetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755D623FF4665005A0247 /* NBANetworkServiceType.swift */; };
 		E21755DB23FF5176005A0247 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DA23FF5176005A0247 /* EndpointType.swift */; };
 		E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DC23FF5224005A0247 /* APIClientType.swift */; };
-		E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755DE23FF53E6005A0247 /* HTTPMethod.swift */; };
 		E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */; };
 		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
-		E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */; };
 		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
 		E2F806102407087A0046BBE5 /* LeagueStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */; };
 		E2F80626240723D50046BBE5 /* NBAStandingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */; };
@@ -50,19 +52,21 @@
 		B8228246239C290500B0DF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8228248239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B822824D239C290500B0DF50 /* nba-standingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nba-standingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8228251239C290500B0DF50 /* nba_standingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nba_standingsTests.swift; sourceTree = "<group>"; };
+		B8228251239C290500B0DF50 /* NBANetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBANetworkServiceTests.swift; sourceTree = "<group>"; };
 		B8228253239C290500B0DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8ECA86B239EEAEE002A01E0 /* NBAStandingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBAStandingCell.xib; sourceTree = "<group>"; };
 		B8ECA86D239EEDE7002A01E0 /* NBAStandingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStandingCell.swift; sourceTree = "<group>"; };
+		E20ED6002408851F0017C8E4 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		E20ED602240887F40017C8E4 /* NBATeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATeam.swift; sourceTree = "<group>"; };
+		E20ED604240893DF0017C8E4 /* MockURLSession+DataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockURLSession+DataTask.swift"; sourceTree = "<group>"; };
+		E20ED608240894D30017C8E4 /* NBAAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIClientTests.swift; sourceTree = "<group>"; };
 		E21755D223FF459A005A0247 /* NBAAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIClient.swift; sourceTree = "<group>"; };
-		E21755D423FF4643005A0247 /* NBAAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIService.swift; sourceTree = "<group>"; };
-		E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIServiceType.swift; sourceTree = "<group>"; };
+		E21755D423FF4643005A0247 /* NBANetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBANetworkService.swift; sourceTree = "<group>"; };
+		E21755D623FF4665005A0247 /* NBANetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBANetworkServiceType.swift; sourceTree = "<group>"; };
 		E21755DA23FF5176005A0247 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		E21755DC23FF5224005A0247 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
-		E21755DE23FF53E6005A0247 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIEndpoint.swift; sourceTree = "<group>"; };
 		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
-		E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskType.swift; sourceTree = "<group>"; };
 		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
 		E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStandingsViewModel.swift; sourceTree = "<group>"; };
 		E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAStandingCellViewModel.swift; sourceTree = "<group>"; };
@@ -118,10 +122,29 @@
 		B8228250239C290500B0DF50 /* nba-standingsTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8228251239C290500B0DF50 /* nba_standingsTests.swift */,
+				E20ED6062408949D0017C8E4 /* Network */,
 				B8228253239C290500B0DF50 /* Info.plist */,
 			);
 			path = "nba-standingsTests";
+			sourceTree = "<group>";
+		};
+		E20ED6062408949D0017C8E4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E20ED607240894AA0017C8E4 /* Mocks */,
+				E20ED608240894D30017C8E4 /* NBAAPIClientTests.swift */,
+				B8228251239C290500B0DF50 /* NBANetworkServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E20ED607240894AA0017C8E4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E20ED6002408851F0017C8E4 /* MockAPIClient.swift */,
+				E20ED604240893DF0017C8E4 /* MockURLSession+DataTask.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		E21755D123FF457F005A0247 /* Networking */ = {
@@ -130,7 +153,7 @@
 				E21755E223FF54B7005A0247 /* Protocol Definitions */,
 				E21755D223FF459A005A0247 /* NBAAPIClient.swift */,
 				E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */,
-				E21755D423FF4643005A0247 /* NBAAPIService.swift */,
+				E21755D423FF4643005A0247 /* NBANetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -139,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E263C63F240465FB0073944E /* Common */,
-				E21755D623FF4665005A0247 /* NBAAPIServiceType.swift */,
+				E21755D623FF4665005A0247 /* NBANetworkServiceType.swift */,
 			);
 			path = "Protocol Definitions";
 			sourceTree = "<group>";
@@ -149,9 +172,7 @@
 			children = (
 				E21755DC23FF5224005A0247 /* APIClientType.swift */,
 				E21755DA23FF5176005A0247 /* EndpointType.swift */,
-				E21755DE23FF53E6005A0247 /* HTTPMethod.swift */,
 				E263C63B2404600C0073944E /* URLSessionType.swift */,
-				E263C63D240463EF0073944E /* URLSessionDataTaskType.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -160,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E26801342404F727004E69D7 /* NBAStanding.swift */,
+				E20ED602240887F40017C8E4 /* NBATeam.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,12 +319,11 @@
 				E21755DD23FF5224005A0247 /* APIClientType.swift in Sources */,
 				E26801352404F727004E69D7 /* NBAStanding.swift in Sources */,
 				E21755D323FF459A005A0247 /* NBAAPIClient.swift in Sources */,
-				E263C63E240463EF0073944E /* URLSessionDataTaskType.swift in Sources */,
 				B822823F239C290400B0DF50 /* LeagueStandingsViewController.swift in Sources */,
-				E21755D723FF4665005A0247 /* NBAAPIServiceType.swift in Sources */,
-				E21755D523FF4643005A0247 /* NBAAPIService.swift in Sources */,
+				E21755D723FF4665005A0247 /* NBANetworkServiceType.swift in Sources */,
+				E21755D523FF4643005A0247 /* NBANetworkService.swift in Sources */,
 				B8ECA86E239EEDE7002A01E0 /* NBAStandingCell.swift in Sources */,
-				E21755DF23FF53E6005A0247 /* HTTPMethod.swift in Sources */,
+				E20ED603240887F40017C8E4 /* NBATeam.swift in Sources */,
 				B822823B239C290400B0DF50 /* AppDelegate.swift in Sources */,
 				B822823D239C290400B0DF50 /* SceneDelegate.swift in Sources */,
 				E2F80626240723D50046BBE5 /* NBAStandingCellViewModel.swift in Sources */,
@@ -314,7 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8228252239C290500B0DF50 /* nba_standingsTests.swift in Sources */,
+				E20ED605240893DF0017C8E4 /* MockURLSession+DataTask.swift in Sources */,
+				B8228252239C290500B0DF50 /* NBANetworkServiceTests.swift in Sources */,
+				E20ED6012408851F0017C8E4 /* MockAPIClient.swift in Sources */,
+				E20ED609240894D30017C8E4 /* NBAAPIClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

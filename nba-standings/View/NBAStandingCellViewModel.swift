@@ -13,11 +13,11 @@ struct NBAStandingCellViewModel {
     let standing: NBAStanding
 
     var logoImage: UIImage? {
-        return UIImage(named: standing.shortName)
+        return UIImage(named: standing.team.shortName)
     }
 
     var nameLabelText: String {
-        return standing.fullName
+        return standing.team.fullName
     }
 
     var winLabelText: String {

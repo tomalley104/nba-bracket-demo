@@ -61,24 +61,3 @@ class NBAAPIClient: APIClientType {
         return request
     }
 }
-
-/* NBAAPIClientTests:
-    - check using injected:
-        - session (mock)
-            - var dataTaskWithRequestCalled: Bool
-        - cachePolicy
-        - timeoutInterval
-    - defaults to:
-        - cachePolicy: .useProtocolCachePolicy
-        - timeoutInterval: 10.0
-    - behavior:
-        - builds URLRequest w/ ALL Endpoint-provided params
-        - calls resume() on dataTask
-        - succeeds when:
-            - dataTask returns non-nil data
-        - fails when:
-            - url is invalid (returns ClientError.invalidURL)
-            - dataTask returns nil data
-            - dataTask returns dataTask's error
-*/
-

@@ -9,9 +9,5 @@
 import Foundation
 
 protocol APIClientType {
-    var urlSession: URLSessionType { get }
-    var cachePolicy: URLRequest.CachePolicy? { get }
-    var timeoutInterval: Double? { get }
-    
     func request(_ endpoint: EndpointType, completion: @escaping (Result<Data, Error>) -> Void)
-}
+} 
