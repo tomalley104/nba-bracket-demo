@@ -11,13 +11,14 @@ import Foundation
 
 class MockURLSession: URLSessionType {
 
+    var dispatchQueue = DispatchQueue(label: "MockSession", qos: .background)
     var requested = [URLRequest]()
     var returnedTasks = [MockURLSessionDataTask]()
 
     func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskCompletion) -> URLSessionDataTaskType {
         requested.append(request)
 
-        let mock = MockURLSessionDataTask(request, completionHandler)
+        let mock = MockURLSessionDataTask(request, completionHandler, dispatchQueue)
         returnedTasks.append(mock)
 
         return mock
@@ -26,17 +27,15 @@ class MockURLSession: URLSessionType {
 
 class MockURLSessionDataTask: URLSessionDataTaskType {
 
-    var stubData: Data?
-    var stubResponse: URLResponse?
-    var stubError: Error?
-
     private(set) var request: URLRequest
-    private(set) var completion: ((Data?, URLResponse?, Error?) -> Void)
+    private(set) var completion: (URLSessionType.DataTaskCompletion)
     private(set) var resumeCalled: Bool = false
+    private(set) var dispatchQueue: DispatchQueue
 
-    init(_ request: URLRequest, _ completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+    init(_ request: URLRequest, _ completion: @escaping (URLSessionType.DataTaskCompletion),  _ dispatchQueue: DispatchQueue) {
         self.request = request
         self.completion = completion
+        self.dispatchQueue  = dispatchQueue
     }
 
     func resume() {
@@ -46,10 +45,13 @@ class MockURLSessionDataTask: URLSessionDataTaskType {
         }
 
         resumeCalled = true
-        if stubError != nil {
-            completion(nil, nil, stubError)
-        } else {
-            completion(stubData, stubResponse, nil)
+    }
+
+    func completeTask(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
+        dispatchQueue.async { [weak self] in
+            // hand it all over; expect consumer to handle
+            self?.completion(data, response, error)
         }
+
     }
 }

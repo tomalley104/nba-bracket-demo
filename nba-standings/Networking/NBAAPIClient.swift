@@ -19,7 +19,7 @@ class NBAAPIClient: APIClientType {
         case unknown
     }
     
-    let urlSession: URLSessionType
+    private let urlSession: URLSessionType
     var cachePolicy: URLRequest.CachePolicy?
     var timeoutInterval: Double?
     
@@ -33,17 +33,18 @@ class NBAAPIClient: APIClientType {
     
     func request(_ endpoint: EndpointType, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let request = buildURLRequest(from: endpoint) else {
-            assertionFailure("Invalid URL: \(endpoint.baseURL) + \(endpoint.path)")
             completion(.failure(ClientError.invalidURL))
             return
         }
         
         urlSession.dataTask(with: request) { data, _, error in
-            guard let data = data else {
-                completion(.failure(error ?? ClientError.unknown))
-                return
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                completion(.success(data))
+            } else {
+                completion(.failure(ClientError.unknown))
             }
-            completion(.success(data))
         }.resume()
     }
     

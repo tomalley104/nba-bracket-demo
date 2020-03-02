@@ -19,6 +19,11 @@ class NBANetworkServiceTests: XCTestCase {
         sut = NBANetworkService(apiClient: mockAPIClient)
     }
 
+    func testGetStandingsBuildsCorrectRequest() {
+        sut.getStandings { _ in }
+        
+    }
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
