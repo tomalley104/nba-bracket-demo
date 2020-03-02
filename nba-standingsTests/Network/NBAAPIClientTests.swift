@@ -9,6 +9,8 @@
 import XCTest
 @testable import nba_standings
 
+// NOTE: These tests do not exhaust possible scenarios, but in light of this project being an exhibition, this intends to strike a good balance between "meaningful" and "reasonable".
+
 class NBAAPIClientTests: XCTestCase {
 
     struct EndpointStub: EndpointType {

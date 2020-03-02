@@ -28,6 +28,7 @@
 		E21755E123FF5496005A0247 /* NBAAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */; };
 		E263C63C2404600C0073944E /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263C63B2404600C0073944E /* URLSessionType.swift */; };
 		E26801352404F727004E69D7 /* NBAStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26801342404F727004E69D7 /* NBAStanding.swift */; };
+		E273B163240DB68000BE4A2C /* StubbedNBAAPITeamsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E273B162240DB68000BE4A2C /* StubbedNBAAPITeamsResponse.txt */; };
 		E2F806102407087A0046BBE5 /* LeagueStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */; };
 		E2F80626240723D50046BBE5 /* NBAStandingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		E21755E023FF5496005A0247 /* NBAAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPIEndpoint.swift; sourceTree = "<group>"; };
 		E263C63B2404600C0073944E /* URLSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionType.swift; sourceTree = "<group>"; };
 		E26801342404F727004E69D7 /* NBAStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStanding.swift; sourceTree = "<group>"; };
+		E273B162240DB68000BE4A2C /* StubbedNBAAPITeamsResponse.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = StubbedNBAAPITeamsResponse.txt; sourceTree = "<group>"; };
 		E2F8060F2407087A0046BBE5 /* LeagueStandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStandingsViewModel.swift; sourceTree = "<group>"; };
 		E2F80625240723D50046BBE5 /* NBAStandingCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBAStandingCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				E20ED607240894AA0017C8E4 /* Mocks */,
 				E20ED608240894D30017C8E4 /* NBAAPIClientTests.swift */,
 				B8228251239C290500B0DF50 /* NBANetworkServiceTests.swift */,
+				E273B162240DB68000BE4A2C /* StubbedNBAAPITeamsResponse.txt */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E273B163240DB68000BE4A2C /* StubbedNBAAPITeamsResponse.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
