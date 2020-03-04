@@ -9,14 +9,7 @@
 import Foundation
 
 struct NBAStanding {
-    let teamId: String
-    let shortName: String
-    
-    let city: String
-    let nickname: String
-    
-    let fullName: String
-    
+    let team: NBATeam
     let conference: NBAConference
     let rank: Int
     

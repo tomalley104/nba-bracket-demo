@@ -12,8 +12,8 @@ import UIKit
 class LeagueStandingsViewModel {
     
     static func `default`() -> LeagueStandingsViewModel {
-        let service = NBAAPIService.default()
-        return LeagueStandingsViewModel(apiService: service)
+        let network = NBANetworkService.default()
+        return LeagueStandingsViewModel(networkService: network)
     }
     
     // MARK: UIViewController
@@ -28,13 +28,13 @@ class LeagueStandingsViewModel {
     }
     
     // MARK: Standings
-    private let apiService: NBAAPIServiceType
+    private let networkService: NBANetworkServiceType
     private var cellVMs: (east: [NBAStandingCellViewModel], west: [NBAStandingCellViewModel])
     
     // MARK: Init
     
-    init(apiService: NBAAPIServiceType, cachedStandings: [NBAStanding]? = nil) {
-        self.apiService = apiService
+    init(networkService: NBANetworkServiceType, cachedStandings: [NBAStanding]? = nil) {
+        self.networkService = networkService
         self.cellVMs = (east: [], west: [])
         
         if let standings = cachedStandings {
@@ -72,7 +72,7 @@ class LeagueStandingsViewModel {
     // MARK: Fetching Data
     
     func refreshStandings(completion: @escaping (Result<Bool, Error>) -> Void) {
-        apiService.getStandings { [weak self] result in
+        networkService.getStandings { [weak self] result in
             switch result {
                 case .success(let standings):
                     let hasNew = (self?.createCellViewModels(for: standings) ?? false)

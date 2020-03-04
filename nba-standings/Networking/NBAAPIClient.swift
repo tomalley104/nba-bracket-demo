@@ -19,7 +19,7 @@ class NBAAPIClient: APIClientType {
         case unknown
     }
     
-    let urlSession: URLSessionType
+    private let urlSession: URLSessionType
     var cachePolicy: URLRequest.CachePolicy?
     var timeoutInterval: Double?
     
@@ -33,17 +33,18 @@ class NBAAPIClient: APIClientType {
     
     func request(_ endpoint: EndpointType, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let request = buildURLRequest(from: endpoint) else {
-            assertionFailure("Invalid URL: \(endpoint.baseURL) + \(endpoint.path)")
             completion(.failure(ClientError.invalidURL))
             return
         }
         
         urlSession.dataTask(with: request) { data, _, error in
-            guard let data = data else {
-                completion(.failure(error ?? ClientError.unknown))
-                return
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                completion(.success(data))
+            } else {
+                completion(.failure(ClientError.unknown))
             }
-            completion(.success(data))
         }.resume()
     }
     
@@ -61,24 +62,3 @@ class NBAAPIClient: APIClientType {
         return request
     }
 }
-
-/* NBAAPIClientTests:
-    - check using injected:
-        - session (mock)
-            - var dataTaskWithRequestCalled: Bool
-        - cachePolicy
-        - timeoutInterval
-    - defaults to:
-        - cachePolicy: .useProtocolCachePolicy
-        - timeoutInterval: 10.0
-    - behavior:
-        - builds URLRequest w/ ALL Endpoint-provided params
-        - calls resume() on dataTask
-        - succeeds when:
-            - dataTask returns non-nil data
-        - fails when:
-            - url is invalid (returns ClientError.invalidURL)
-            - dataTask returns nil data
-            - dataTask returns dataTask's error
-*/
-

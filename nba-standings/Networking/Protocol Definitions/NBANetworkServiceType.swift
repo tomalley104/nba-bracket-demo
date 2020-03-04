@@ -1,5 +1,5 @@
 //
-//  NBAAPIServiceType.swift
+//  NBANetworkServiceType.swift
 //  nba-standings
 //
 //  Created by Tom OMalley on 2/20/20.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-protocol NBAAPIServiceType {
-    var apiClient: APIClientType { get }
-    
+protocol NBANetworkServiceType {
     func getStandings(_ completion: @escaping (Result<[NBAStanding], Error>) -> Void) 
 }
